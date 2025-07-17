@@ -8,6 +8,7 @@ import { IProduct } from './product.model';
 })
 export class CatalogComponent {
   products: IProduct[];
+  filter: string = '';
 
   constructor() {
     this.products =  [
@@ -191,4 +192,15 @@ getImageUrl(product: IProduct) {
   return '/assets/images/robot-parts/' + product.imageName;
 }
 
+getFilteredProducts(filter: string): IProduct[] {
+
+  this.filter = filter;
+  if (this.filter === 'All') {
+    console.log('No filter applied, returning all products');
+    return this.products;
+  }
+  console.log(`Filtering products by category: ${this.filter}`);
+  return this.products.filter(product => product.category === this.filter);
+  }
 }
+
