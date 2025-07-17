@@ -19,7 +19,11 @@
           </div>
         </div>
         <div class="price">
-          <div>{{ product.price | currency }}</div>
+          <div *ngIf="!product.discount">{{ product.price | currency }}</div>
+            <div class="discount" *ngIf="product.discount">
+              <span class="original-price">{{ product.price | currency }}</span><br />
+              <span class="discount-percentage">{{ product.discount }}% off</span>
+            </div>
           <button class="cta">Buy</button>
         </div>
       </div>
