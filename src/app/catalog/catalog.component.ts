@@ -20,4 +20,9 @@ export class CatalogComponent {
       discount: 10
     };
   }
+
+getImageUrl(product: IProduct) {
+  return '/assets/images/robot-parts/' + product.imageName;
+}
+
 }
