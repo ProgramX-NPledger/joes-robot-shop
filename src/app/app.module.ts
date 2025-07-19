@@ -4,13 +4,15 @@ import { SiteHeaderComponent } from './site-header/site-header.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { ProductComponentComponent } from './product-component/product-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CatalogComponent,
-    SiteHeaderComponent
+    SiteHeaderComponent,
+    ProductComponentComponent
   ],
   imports: [
     BrowserModule

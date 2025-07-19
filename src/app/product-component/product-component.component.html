@@ -1,0 +1,20 @@
+  <div class="product">
+    <div class="product-details">
+        <img [src]="getImageUrl(product)" [alt]="product.name" />
+        <div class="product-info">
+        <div class="name red">{{ product?.name }}</div>
+        <div class="description"> {{ product?.description }}</div>
+        <div class="category">Part Type: {{ product?.category }} </div>
+        </div>
+    </div>
+    <div class="price">
+        <div class="bold"
+        [style.color]="product.discount ? 'red' : 'black'"
+        [ngClass]="getDiscountedClasses(product)">{{ product.price | currency:'GBP' }}</div>
+        <div class="discount" *ngIf="product.discount">
+        <span class="original-price">{{ product.price | currency:'GBP' }}</span><br />
+        <span class="discount-percentage">{{ product.discount }}% off</span>
+        </div>
+        <button class="cta" (click)="addToCart(product)">Buy</button>
+    </div>
+</div>
