@@ -202,5 +202,9 @@ getFilteredProducts(filter: string): IProduct[] {
   console.log(`Filtering products by category: ${this.filter}`);
   return this.products.filter(product => product.category === this.filter);
   }
+
+  getDiscountedClasses(product: IProduct): string[] {
+    return product.discount ? ['strikethrough'] : [''];
+  }
 }
 

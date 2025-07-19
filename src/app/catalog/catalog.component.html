@@ -19,11 +19,11 @@
           </div>
         </div>
         <div class="price">
-          <div *ngIf="!product.discount">{{ product.price | currency:'GBP' }}</div>
-            <div class="discount" *ngIf="product.discount">
-              <span class="original-price">{{ product.price | currency:'GBP' }}</span><br />
-              <span class="discount-percentage">{{ product.discount }}% off</span>
-            </div>
+          <div class="bold" [ngClass]="getDiscountedClasses(product)">{{ product.price | currency:'GBP' }}</div>
+          <div class="discount" *ngIf="product.discount">
+            <span class="original-price">{{ product.price | currency:'GBP' }}</span><br />
+            <span class="discount-percentage">{{ product.discount }}% off</span>
+          </div>
           <button class="cta">Buy</button>
         </div>
       </div>
