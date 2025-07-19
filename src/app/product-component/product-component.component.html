@@ -15,6 +15,6 @@
         <span class="original-price">{{ product.price | currency:'GBP' }}</span><br />
         <span class="discount-percentage">{{ product.discount }}% off</span>
         </div>
-        <button class="cta" (click)="addToCart(product)">Buy</button>
+        <button class="cta" (click)="buyButtonClicked(product)">Buy</button>
     </div>
 </div>
