@@ -19,7 +19,9 @@
           </div>
         </div>
         <div class="price">
-          <div class="bold" [ngClass]="getDiscountedClasses(product)">{{ product.price | currency:'GBP' }}</div>
+          <div class="bold"
+          [style.color]="product.discount ? 'red' : 'black'"
+          [ngClass]="getDiscountedClasses(product)">{{ product.price | currency:'GBP' }}</div>
           <div class="discount" *ngIf="product.discount">
             <span class="original-price">{{ product.price | currency:'GBP' }}</span><br />
             <span class="discount-percentage">{{ product.discount }}% off</span>
