@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProductComponentComponent } from './product-component/product-component.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -13,9 +15,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HomeComponent,
     CatalogComponent,
     SiteHeaderComponent,
-    ProductComponentComponent
+    ProductComponentComponent,
+    CartComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule
   ],

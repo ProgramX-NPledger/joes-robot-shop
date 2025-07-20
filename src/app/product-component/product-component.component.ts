@@ -18,7 +18,7 @@ export class ProductComponentComponent {
     this.buy.emit();
   }
 
-    getDiscountedClasses(product: IProduct): string[] {
+  getDiscountedClasses(product: IProduct): string[] {
     return product.discount ? ['strikethrough'] : [''];
   }
 
