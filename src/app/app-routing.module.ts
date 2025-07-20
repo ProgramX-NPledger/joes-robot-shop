@@ -11,7 +11,7 @@ const routes: Routes = [
     title: "Home - Joe's Robot Shop"
   },
   {
-    path: "catalog",
+    path: "catalog/:filter",
     component: CatalogComponent,
     title: "Catalog - Joe's Robot Shop"
   },
