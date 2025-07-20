@@ -1,19 +1,27 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IProduct } from './product.model';
 import { CartService } from '../cart.service';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'bot-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css']
 })
-export class CatalogComponent {
+export class CatalogComponent implements OnInit {
   products: IProduct[];
   filter: string = '';
 
   // private cartSvc: CartService = inject(CartService); // can also be in the ctor
 
-  constructor(private cartSvc: CartService) {
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe({
+      next: (products) => this.products = products,
+      error: (err) => console.error(err)
+    });
+  }
+
+  constructor(private cartSvc: CartService, private productService: ProductService) {
     this.products =  [
   {
     id: 1,
