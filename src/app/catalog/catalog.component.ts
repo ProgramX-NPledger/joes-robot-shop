@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IProduct } from './product.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'bot-catalog',
@@ -9,9 +10,10 @@ import { IProduct } from './product.model';
 export class CatalogComponent {
   products: IProduct[];
   filter: string = '';
-  cart: IProduct[] = [];
 
-  constructor() {
+  // private cartSvc: CartService = inject(CartService); // can also be in the ctor
+
+  constructor(private cartSvc: CartService) {
     this.products =  [
   {
     id: 1,
@@ -205,8 +207,7 @@ getFilteredProducts(filter: string): IProduct[] {
 
 
   addToCart(product: IProduct) {
-    this.cart.push(product);
-    console.log(`Added ${product.name} to cart.`);
+    this.cartSvc.add(product);
   }
 }
 
